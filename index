@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CareScope: policy answers for home-care carers</title>
+<style>
+body{margin:0;font:17px/1.55 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;color:#14212b;background:#f4f7f6}
+main{max-width:680px;margin:0 auto;padding:20px 16px 60px}
+h1{font-size:1.9rem;line-height:1.15}h2{margin-top:32px}
+.cta{display:block;text-align:center;background:#14212b;color:#fff;font-weight:800;font-size:1.2rem;padding:16px;border-radius:12px;text-decoration:none;margin:18px 0}
+table{border-collapse:collapse;width:100%;font-size:.95rem}td,th{border:1px solid #b9c6c2;padding:8px;text-align:left;vertical-align:top}
+.box{background:#fff;border:2px solid #14212b;border-radius:12px;padding:12px}
+.todo{background:#ffeab8;padding:2px 6px;border-radius:4px}
+html{scroll-behavior:smooth}
+#demo{--ink:#14212b;max-width:640px;margin:32px auto 0;padding:12px;border:3px solid #14212b;border-radius:16px;background:#eaf0ee}
+#demo header{display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap}
+#demo .dt{font-size:1.25rem;margin:4px 0}
+.badge{background:#14212b;color:#fff;border-radius:6px;padding:4px 8px;font-size:.8rem;font-weight:700}
+#demo .note{font-size:.88rem;margin:6px 0 10px}
+#demo h2{font-size:1.05rem;margin:18px 0 6px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.req{min-height:68px;padding:10px;border:2px solid var(--ink);border-radius:12px;background:#fff;color:var(--ink);font:inherit;font-weight:600;text-align:left;display:flex;gap:8px;align-items:center;cursor:pointer}
+.req:active{background:#dfe9e6}.req span{font-size:1.5rem}
+.req.last{outline:4px solid #1b5fa8;outline-offset:2px}.wide{grid-column:1/-1}
+#sheet{--ink:#14212b;position:fixed;inset:0;overflow:auto;padding:14px;display:none;z-index:5;color:#14212b}
+#sheet.show{display:block}
+.dec{display:flex;align-items:center;gap:12px;font-size:2.1rem;font-weight:800;line-height:1.1;padding:6px 0}
+.dec i{font-style:normal;font-size:3rem}
+.P{background:#d8f3e2;color:#0b4d27}.N{background:#fde0e3;color:#7d0b1c}.M{background:#ffeab8;color:#6b3d00}
+.card{background:#fff;color:var(--ink);border-radius:12px;padding:12px;margin:10px 0;border:2px solid var(--ink)}
+.card b{display:block}
+.warn{background:#14212b;color:#fff;border-radius:12px;padding:12px;margin:10px 0;font-weight:600}
+.act{font-size:1.2rem;font-weight:800;padding:14px;border-radius:12px;background:#14212b;color:#fff;margin:10px 0}
+.btn{display:block;width:100%;min-height:56px;border-radius:12px;border:2px solid var(--ink);font:inherit;font-weight:800;font-size:1.1rem;text-align:center;text-decoration:none;padding:14px;margin:10px 0;color:var(--ink);background:#fff;cursor:pointer}
+.call{background:#6b3d00;color:#fff;border-color:#6b3d00}
+#demo ul{padding-left:20px;margin:6px 0}#demo li{margin:4px 0}
+button:focus-visible,a:focus-visible{outline:4px solid #1b5fa8;outline-offset:2px}
+.hero{display:flex;flex-wrap:wrap;gap:16px;align-items:center;background:linear-gradient(135deg,#0b4f55,#0f6f73);border-radius:20px;padding:20px}
+.hero .ht{flex:1 1 280px}.hero h1,.hero p{color:#fff}.hero h1{margin:8px 0}.tag2{font-size:.85rem;opacity:.95}
+.hero .cta{background:#ffc83d;color:#14212b}
+.pic{margin:0;flex:1 1 240px;max-width:360px}.pic svg{width:100%;height:auto;display:block}.pic figcaption{font-size:.78rem;color:#fff;text-align:center;margin-top:4px}
+body{background:#eef6f6}main>h2{border-left:7px solid #f08a24;padding-left:10px;color:#0b4f55}
+th{background:#0f6f73;color:#fff}table{background:#fff}
+.tg{display:inline-block;padding:2px 8px;border-radius:999px;font-weight:700;font-size:.85rem}.tg.ok{background:#d8f3e2;color:#0b4d27}.tg.pl{background:#ffeab8;color:#6b3d00}
+.box{background:#fff4d6;border-color:#f08a24}.calc{background:#e3f3ee;border-left:7px solid #1b8a5a;padding:12px;border-radius:8px}
+</style></head><body><main>
+<div class="hero"><div class="ht"><p class="tag2">CareScope: a fictional project for a college assignment. All data is sample data.</p><h1>Give your carers a clear answer in seconds, and keep your phone for the calls that matter.</h1><p>Suitable for managers operating community home care services and supporting individuals to remain at home in the comfort of their own homes for as long as possible. Carers receive instant responses on queries, with a permitted, not permitted or Manager review, with a rule behind it.</p><a class="cta" href="#demo">Try the demo</a></div><figure class="pic"><svg viewBox="0 0 320 230" role="img" aria-label="Illustration: a home support worker in a teal uniform with her hand on the shoulder of a smiling older man in an armchair">
+<rect width="320" height="230" rx="18" fill="#d6eeec"/><circle cx="270" cy="40" r="26" fill="#ffe08a"/>
+<rect x="28" y="96" width="140" height="112" rx="22" fill="#c9824a"/><rect x="40" y="150" width="116" height="58" rx="14" fill="#b36f3a"/>
+<rect x="60" y="104" width="72" height="80" rx="26" fill="#7b5ea7"/><rect x="52" y="152" width="92" height="38" rx="12" fill="#f2b84b"/>
+<circle cx="96" cy="80" r="25" fill="#f1c9a5"/><path d="M71 76a25 20 0 0 1 50 0q-25-12-50 0z" fill="#e4e8ea"/>
+<path d="M86 90q10 9 20 0" stroke="#7a3b2e" stroke-width="3" fill="none" stroke-linecap="round"/><circle cx="87" cy="80" r="2.5" fill="#222"/><circle cx="105" cy="80" r="2.5" fill="#222"/>
+<rect x="196" y="112" width="62" height="86" rx="24" fill="#0f8b8d"/><rect x="204" y="190" width="18" height="34" fill="#1d3557"/><rect x="232" y="190" width="18" height="34" fill="#1d3557"/>
+<path d="M200 130L146 124" stroke="#0f8b8d" stroke-width="15" stroke-linecap="round"/><circle cx="140" cy="123" r="8" fill="#d9a57b"/>
+<circle cx="227" cy="84" r="25" fill="#d9a57b"/><path d="M202 82a25 24 0 0 1 50 0q-8-14-25-14t-25 14z" fill="#3b2a20"/>
+<path d="M217 94q10 9 20 0" stroke="#7a3b2e" stroke-width="3" fill="none" stroke-linecap="round"/><circle cx="218" cy="84" r="2.5" fill="#222"/><circle cx="236" cy="84" r="2.5" fill="#222"/>
+<rect x="232" y="128" width="20" height="12" rx="2" fill="#fff"/><rect x="235" y="132" width="14" height="2" fill="#0f8b8d"/>
+<rect x="150" y="14" width="150" height="36" rx="18" fill="#d8f3e2" stroke="#0b4d27" stroke-width="2"/><text x="225" y="38" text-anchor="middle" font-size="17" font-weight="700" fill="#0b4d27" font-family="system-ui,sans-serif">✔ Permitted</text></svg>
+<figcaption>Illustration only. Not real people.</figcaption></figure></div>
+
+<h2>Who has the problem</h2>
+<p><b>Pays and decides:</b> the registered manager or service owner. <b>Who uses it?</b> Home support workers direct to their phone.</p>
+<p class="box">“I get the same phone calls daily, asking repetitive questions, and the answer is already stated in the policy.” <i>(invented quote)</i></p>
+<h2>What the solution must do</h2>
+<table><tr><th>Requirement</th><th>How it is met</th><th>Status</th></tr>
+<tr><td>Decision in 3 taps or fewer</td><td>Tap a request; the answer appears</td><td><span class="tg ok">In the demo</span></td></tr>
+<tr><td>Shows the rule it came from</td><td>Rule, policy area and review date on every result</td><td><span class="tg ok">In the demo</span></td></tr>
+<tr><td>Works on a phone</td><td>Large buttons, one column, no login</td><td><span class="tg ok">In the demo</span></td></tr>
+<tr><td>Unclear or risky requests go to a manager</td><td>Medication, money, no rule, or an out-of-date rule</td><td><span class="tg ok">In the demo</span></td></tr>
+<tr><td>Manager sees escalations</td><td>Count and list at the bottom of the demo</td><td><span class="tg ok">In the demo</span></td></tr>
+<tr><td>Understands free-text requests</td><td>An AI language model would read typed requests</td><td><span class="tg pl">Planned</span></td></tr></table>
+<p>The demo is a rule-based engine, not an AI model. An AI version is planned. The 50 policy records are invented sample data. If a rule was last reviewed over 365 days ago, the demo flags it and sends permitted tasks to a manager.</p>
+
+<section id="demo" aria-label="Demo">
+<header><h2 class="dt">Demo: can I do this?</h2><span class="badge">SAMPLE DATA</span></header>
+<p class="note">Tap what was asked for. Fictional company “Sample Home Care Ltd”. Not real policy.</p>
+<div class="card" id="lastc" hidden></div>
+<div class="grid" id="grid"></div>
+<h2>Manager view: escalations</h2>
+<div class="card" id="mgr"></div>
+<button class="btn" id="reset">Clear saved checks</button>
+</section>
+<h2>Paid for by time saved (assumed example below)</h2>
+<p class="calc">Assume 200 home support workers, 20 manager queries a day, 70% routine, 6 minutes each, 25 working days. That is about 35 manager hours a month, roughly €1,050 at an assumed €30 an hour. At an assumed €400 a month, the net saving could be about €650 a month.</p>
+
+<h2>How people cope today</h2>
+<p>It is assumed, at the time of posting, that management teams continue to field several phone calls per day from care staff to query whether select tasks are permitted or not. Using this tool is expected to reduce management workload and give home support workers (HSWs) on the front line more consistent response times. Managers would only handle exceptions, reducing the admin burden while maintaining human oversight.</p>
+<p class="todo">To add: how carers ask today (phone, messages, paper policy). Two real alternative products, each with link and the date you checked it.</p>
+<h2>Tested by someone else</h2>
+<p class="todo">To add after testing: what they tried, what confused them, what you changed.</p>
+</main>
+<div id="sheet" role="dialog" aria-live="polite"></div>
+<script>
+// SAMPLE POLICY TABLE (fictional). type: ok = permitted task, no = not permitted, med = medication/medical, money = money or gifts, mgr = needs a manager decision.
+// reviewed = date the rule was last reviewed. The tool compares it with today's date.
+const R=[
+["Remind me to take medication", "⏰", "Medication and health", "ok", "Prompting or reminding about medication is permitted.", "Yes, I can do that.", "2026-07-01"],
+["Place tablets on a plate or in a pot", "💊", "Medication and health", "ok", "Placing tablets on a plate or in a container is permitted.", "Yes, I can do that.", "2026-04-10"],
+["Remind to check blood sugar", "🩸", "Medication and health", "ok", "Prompting or reminding about blood sugar checks is permitted.", "Yes, I can do that.", "2026-04-10"],
+["Empty a catheter bag", "🚽", "Medication and health", "ok", "Emptying a catheter bag is permitted.", "Yes, I can do that.", "2025-08-15"],
+["Attach or remove a night bag", "🌙", "Medication and health", "ok", "Attaching or un-attaching a night bag is permitted.", "Yes, I can do that.", "2026-04-10"],
+["Remind to use eye or ear drops", "👁️", "Medication and health", "ok", "Prompting or reminding about eye or ear drops is permitted.", "Yes, I can do that.", "2026-04-10"],
+["Watch if tablets are taken", "👀", "Medication and health", "ok", "Observing whether medication is taken is permitted.", "Yes, I can do that.", "2026-04-10"],
+["Remind to apply a pain patch", "⏱️", "Medication and health", "ok", "Prompting or reminding about a pain patch is permitted.", "Yes, I can do that.", "2026-04-10"],
+["Apply moisturising cream", "🧴", "Medication and health", "ok", "Applying moisturising cream is permitted.", "Yes, I can do that.", "2026-04-10"],
+["Put tablets in his hand or mouth", "🤲", "Medication and health", "med", "Giving tablets into the hand or mouth is not permitted. A manager must confirm what to do.", "I need to check with my manager first.", "2026-04-10"],
+["Give medication by PEG tube", "🩺", "Medication and health", "med", "Medication through a PEG tube is not permitted.", "I need to check with my manager first.", "2026-04-10"],
+["Crush, split or hide tablets", "🥄", "Medication and health", "med", "Crushing, splitting or hiding medication in food or drink is not permitted.", "I need to check with my manager first.", "2026-04-10"],
+["Give an insulin injection", "💉", "Medication and health", "med", "Insulin and injections are not permitted.", "I need to check with my manager first.", "2026-04-10"],
+["Check blood sugar", "📟", "Medication and health", "no", "Checking blood sugar levels is not permitted.", "I'm not able to do that under our service guidelines. I can ask my manager if there is another way.", "2026-04-10"],
+["Remove, replace or flush a catheter", "🚫", "Medication and health", "no", "Removing, replacing or flushing a catheter is not permitted.", "I'm not able to do that under our service guidelines. I can ask my manager if there is another way.", "2026-04-10"],
+["Give eye drops or ear drops", "💧", "Medication and health", "no", "Giving eye or ear drops is not permitted. Prompting is.", "I'm not able to do that under our service guidelines. I can ask my manager if there is another way.", "2026-04-10"],
+["Give medical advice", "💬", "Medication and health", "no", "Medical advice is not permitted.", "I'm not able to do that under our service guidelines. I can ask my manager if there is another way.", "2026-04-10"],
+["Buy or suggest over-the-counter medicine", "🏥", "Medication and health", "no", "Buying or prompting over-the-counter medicines is not permitted.", "I'm not able to do that under our service guidelines. I can ask my manager if there is another way.", "2026-04-10"],
+["Apply a pain patch", "🩹", "Medication and health", "no", "Applying pain patches is not permitted.", "I'm not able to do that under our service guidelines. I can ask my manager if there is another way.", "2026-04-10"],
+["Dress or remove a wound dressing", "🧷", "Medication and health", "no", "Dressing wounds or removing dressings is not permitted.", "I'm not able to do that under our service guidelines. I can ask my manager if there is another way.", "2026-04-10"],
+["Borrow money", "💶", "Money and gifts", "money", "Borrowing money is not permitted. Tell a manager.", "I need to check with my manager first.", "2026-04-10"],
+["Buy or sell goods to the client", "🛍️", "Money and gifts", "money", "Buying or selling goods with a client is not permitted. Tell a manager.", "I need to check with my manager first.", "2026-04-10"],
+["Collect the client's pension", "🏦", "Money and gifts", "money", "Needs the client's written consent and manager approval.", "I need to check with my manager first.", "2026-04-10"],
+["Pay with the client's bank card or ATM", "💳", "Money and gifts", "money", "Needs written consent and manager approval.", "I need to check with my manager first.", "2026-04-10"],
+["Accept a gift of money", "🎁", "Money and gifts", "no", "Gifts of money are never accepted, in any circumstances.", "I'm not able to do that under our service guidelines. I can ask my manager if there is another way.", "2026-04-10"],
+["Buy alcohol", "🍺", "Money and gifts", "no", "Buying alcohol is not permitted.", "I'm not able to do that under our service guidelines. I can ask my manager if there is another way.", "2026-04-10"],
+["Place a bet", "🎰", "Money and gifts", "no", "Placing bets is not permitted.", "I'm not able to do that under our service guidelines. I can ask my manager if there is another way.", "2026-04-10"],
+["Hoover the living room or bedroom", "🧹", "Household tasks", "ok", "Hoovering the client's living and bedroom areas is permitted.", "Yes, I can do that.", "2025-02-10"],
+["Hoover the stairs", "🪜", "Household tasks", "no", "Stairs are excluded for health and safety.", "I'm not able to do that under our service guidelines. I can ask my manager if there is another way.", "2026-04-10"],
+["Put the laundry on", "👕", "Household tasks", "ok", "Putting laundry on to wash or dry is permitted.", "Yes, I can do that.", "2025-04-01"],
+["Hang out or bring in washing", "🧺", "Household tasks", "ok", "Hanging out, taking in or emptying the drier is permitted.", "Yes, I can do that.", "2026-04-10"],
+["Make or change the bed", "🛏️", "Household tasks", "ok", "Making or changing the client's bed is permitted.", "Yes, I can do that.", "2026-04-10"],
+["Iron two outfits", "♨️", "Household tasks", "ok", "Ironing and putting away 2 outfits is permitted. Not extensive ironing.", "Yes, I can do that.", "2026-04-10"],
+["Empty the daily bins", "🗑️", "Household tasks", "ok", "Emptying daily rubbish bins is permitted.", "Yes, I can do that.", "2026-04-10"],
+["Light tidy of busy areas", "🧽", "Household tasks", "ok", "A light tidy of heavy-traffic areas is permitted.", "Yes, I can do that.", "2026-04-10"],
+["Clean the client's bathroom", "🚿", "Household tasks", "ok", "Cleaning the bathroom after use is permitted.", "Yes, I can do that.", "2026-04-10"],
+["Deep-clean oven, fridge or shower", "🍳", "Household tasks", "no", "Deep cleaning is not permitted.", "I'm not able to do that under our service guidelines. I can ask my manager if there is another way.", "2026-04-10"],
+["Clean windows or hang curtains", "🪟", "Household tasks", "no", "Window cleaning and hanging curtains are not permitted.", "I'm not able to do that under our service guidelines. I can ask my manager if there is another way.", "2026-04-10"],
+["Move furniture", "🛋️", "Household tasks", "no", "Moving furniture is not permitted.", "I'm not able to do that under our service guidelines. I can ask my manager if there is another way.", "2026-04-10"],
+["Declutter or clear out cupboards", "🗄️", "Household tasks", "no", "Decluttering cupboards is not permitted.", "I'm not able to do that under our service guidelines. I can ask my manager if there is another way.", "2026-04-10"],
+["Clean a family member's room", "🚪", "Household tasks", "no", "Only the client's own rooms are covered.", "I'm not able to do that under our service guidelines. I can ask my manager if there is another way.", "2026-04-10"],
+["Gardening or weeding", "🌿", "Household tasks", "no", "Gardening and weeding are not permitted.", "I'm not able to do that under our service guidelines. I can ask my manager if there is another way.", "2026-04-10"],
+["Clean skirting boards", "📏", "Household tasks", "no", "Cleaning skirting boards is not permitted.", "I'm not able to do that under our service guidelines. I can ask my manager if there is another way.", "2026-04-10"],
+["Change a light bulb", "💡", "Household tasks", "no", "Changing light bulbs is not permitted.", "I'm not able to do that under our service guidelines. I can ask my manager if there is another way.", "2026-04-10"],
+["Dust high up", "🧯", "Household tasks", "no", "Overhead hoovering or dusting risks overstretching.", "I'm not able to do that under our service guidelines. I can ask my manager if there is another way.", "2026-04-10"],
+["Polish ornaments, frames or mirrors", "🖼️", "Household tasks", "no", "Polishing ornaments, frames and mirrors is not permitted.", "I'm not able to do that under our service guidelines. I can ask my manager if there is another way.", "2026-04-10"],
+["Make a meal or do the dishes", "🍲", "Meals, notes and company", "ok", "Meal preparation, washing up and the dishwasher are permitted.", "Yes, I can do that.", "2025-09-01"],
+["Write the visit journal notes", "📓", "Meals, notes and company", "ok", "Journal notes after every visit are required.", "Yes, I can do that.", "2026-04-10"],
+["Sit and chat", "🗣️", "Meals, notes and company", "ok", "Companionship and conversation are permitted.", "Yes, I can do that.", "2026-04-10"],
+["Extra 30 minutes, unpaid", "⏳", "Time and visits", "mgr", "Visit changes need a manager decision.", "I need to check with my manager first.", "2026-04-10"]];
+const MGR="+353 1 000 0000"; // fictional number
+const $=s=>document.querySelector(s);
+const ld=()=>{try{return JSON.parse(localStorage.getItem("cs")||"{}")}catch(e){return{}}};
+const sv=o=>{try{localStorage.setItem("cs",JSON.stringify(o))}catch(e){}};
+const OVER=365,DAY=864e5;
+function decide(r){ // all rules run here; nothing typed by hand
+ const days=Math.floor((Date.now()-new Date(r[6]+"T00:00:00"))/DAY), over=days>OVER, t=r[3];
+ let d= t==="ok"?"P": t==="no"?"N":"M", why="";
+ if(t==="ok"&&over){d="M";why="This rule was last reviewed "+days+" days ago (limit "+OVER+"). It may be out of date."}
+ else if(over)why="Note: this rule was last reviewed "+days+" days ago, so it is due for review.";
+ return{d,days,why,over};}
+const L={P:["✔","Permitted","Go ahead and note it in the daily record."],N:["✖","Not permitted","Explain kindly, offer another option, then note it in the daily record."],M:["⚠","Manager review","Call your manager before you do anything."]};
+let pa="";$("#grid").innerHTML=R.map((r,i)=>{const h=r[2]!==pa?`<h2 class="wide">${r[2]}</h2>`:"";pa=r[2];return h+`<button class="req" data-i="${i}"><span>${r[1]}</span>${r[0]}</button>`}).join("")+`<button class="req wide" data-i="-1"><span>❓</span>Something else (not on the list)</button>`;
+function show(i,q){
+ const r=i<0?["Something else","❓","No rule found","mgr","The sample list is not exhaustive and has no matching rule, so the safe answer is manager review.","I'll check with my manager and come back to you.","2026-01-01"]:R[i];
+ const x=decide(r),[ic,lab,act]=L[x.d];
+ $("#sheet").className="show "+x.d;
+ $("#sheet").innerHTML=`<div class="dec" role="status"><i aria-hidden="true">${ic}</i>${lab}</div>
+ <div class="card"><b>${r[0]}</b>Rule (${r[2]}): ${r[4]}${i>=0?"<br>Last reviewed: "+r[6]+" ("+x.days+" days ago)":""}</div>
+ ${x.why?`<div class="warn">⚠ ${x.why}${x.d==="M"?" Escalated automatically.":""}</div>`:""}
+ <div class="card"><b>What you can say</b>“${r[5]}”</div>
+ <div class="act">Next: ${act}</div>
+ ${x.d==="M"?`<a class="btn call" href="tel:${MGR.replace(/ /g,"")}">📞 Call manager (sample number ${MGR})</a>`:""}
+ <button class="btn" id="back">Back to the list</button>`;
+ $("#back").onclick=close;$("#back").focus();
+ if(!q){const s=ld();s.log=(s.log||[]);s.log.push({n:r[0],d:x.d,t:new Date().toISOString()});s.last=i;sv(s);paint();}}
+function close(){$("#sheet").className=""}
+function paint(){
+ const s=ld(),log=s.log||[],today=new Date().toDateString(),td=log.filter(e=>new Date(e.t).toDateString()===today),esc=td.filter(e=>e.d==="M");
+ const lc=$("#lastc");if(s.last!==undefined){const r=s.last<0?["Something else"]:R[s.last];lc.hidden=false;lc.innerHTML="<b>Last check saved: "+r[0]+"</b><button class=\"btn\" id=\"reopen\">Show that result again</button>";$("#reopen").onclick=()=>show(s.last,1)}else lc.hidden=true;
+ document.querySelectorAll(".req").forEach(b=>b.classList.toggle("last",s.last!==undefined&&+b.dataset.i===s.last));
+ $("#mgr").innerHTML=`<b>${esc.length} of ${td.length} checks escalated today</b>`+(esc.length?"<ul>"+esc.slice(-5).reverse().map(e=>`<li>${e.n} (${new Date(e.t).toLocaleTimeString([], {hour:"2-digit",minute:"2-digit"})})</li>`).join("")+"</ul>":"<br>None yet. Tap a request above.");}
+$("#grid").onclick=e=>{const b=e.target.closest(".req");if(b)show(+b.dataset.i)};
+$("#reset").onclick=()=>{try{localStorage.removeItem("cs")}catch(e){}paint()};
+paint();
+if("serviceWorker"in navigator)navigator.serviceWorker.register("sw.js").catch(()=>{});
+</script></body></html>
